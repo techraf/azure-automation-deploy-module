@@ -1,0 +1,14 @@
+{
+    "accountName": {
+        "value": "MyNewAutomationAccount"
+    },
+    "accountLocation": {
+        "value": "East US 2"
+    },
+    "xTimeZone:1.6.0:Name": {
+        "value": "xTimeZone"
+    },
+    "xTimeZone:1.6.0:Uri": {
+        "value": "https://devopsgallerystorage.blob.core.windows.net/packages/xtimezone.1.6.0.nupkg"
+    }
+}
