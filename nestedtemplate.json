@@ -1,0 +1,53 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0",
+    "parameters": {
+        "accountName": {
+            "type": "String"
+        },
+        "accountLocation": {
+            "type": "String"
+        },
+        "xTimeZone:1.6.0:Name": {
+            "type": "String"
+        },
+        "xTimeZone:1.6.0:Uri": {
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Automation/automationAccounts",
+            "name": "[parameters('accountName')]",
+            "apiVersion": "2015-10-31",
+            "location": "[parameters('accountLocation')]",
+            "tags": {},
+            "properties": {
+                "comment": "Resource defined structure",
+                "sku": {
+                    "name": "free"
+                }
+            },
+            "resources": [
+                {
+                    "type": "modules",
+                    "name": "[parameters('xTimeZone:1.6.0:Name')]",
+                    "apiVersion": "2015-10-31",
+                    "location": "[parameters('accountLocation')]",
+                    "tags": {},
+                    "properties": {
+                        "contentLink": {
+                            "uri": "[parameters('xTimeZone:1.6.0:Uri')]"
+                        }
+                    },
+                    "dependsOn": [
+                        "[concat('Microsoft.Automation/automationAccounts/', parameters('accountName'))]"
+                    ]
+                }
+            ],
+            "dependsOn": []
+        }
+    ],
+    "outputs": {}
+}
