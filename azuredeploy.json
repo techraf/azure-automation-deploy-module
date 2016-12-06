@@ -8,17 +8,17 @@
     "accountLocation": {
       "type": "string"
     },
-    "xTimeZone:1.6.0:Name": {
+    "moduleName": {
       "type": "string"
     },
-    "xTimeZone:1.6.0:Uri": {
+    "moduleUri": {
       "type": "string"
     }
   },
   "variables": {},
   "resources": [
     {
-      "name": "[concat(parameters('accountName'), '/', parameters('xTimeZone:1.6.0:Name'))]",
+      "name": "[concat(parameters('accountName'), '/', parameters('moduleName'))]",
       "type": "microsoft.automation/automationAccounts/modules",
       "apiVersion": "2015-10-31",
       "location": "[parameters('accountLocation')]",
@@ -26,7 +26,7 @@
       "tags": {},
       "properties": {
         "contentLink": {
-          "uri": "[parameters('xTimeZone:1.6.0:Uri')]"
+          "uri": "[parameters('moduleUri')]"
         }
       }
     }
